@@ -1,0 +1,59 @@
+body {
+	padding: 15px;
+	background-color: beige;
+}
+
+table.calculator,
+table.calculator * {
+	border: 2px solid black;
+	border-radius: 4px;
+}
+
+table.calculator {
+	background-color: darkslateblue;
+	margin: auto;
+	width: 60%;
+	height: 100%;
+}
+
+thead {
+	padding-top: 1000px !important;
+}
+tr.calculatorDisplay {
+	background-color: #4f4f4f;
+	color: #dcdcdc;
+}
+
+td.expression {
+	text-align: right;
+	padding: 20px;
+}
+
+tbody td {
+	text-align: center;
+	background-color: darkgray;
+	font-size: 20px;
+	/* font-weight: bold; */
+	cursor: pointer;
+	width: 250px;
+}
+
+tbody td:active {
+	background-color: gray;
+	transform: translateY(1px);
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	height: 100%;
+}
+
+.right {
+	text-align: center;
+}
+
+div.history {
+	border: 2px solid black;
+	padding: 30px;
+}
