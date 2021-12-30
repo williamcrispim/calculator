@@ -1,7 +1,9 @@
 let displayValue = document.getElementsByClassName("expression")[0];
-displayValue.innerHTML = 0;
+let ansValue = document.getElementsByClassName("ans")[0];
 let buttons = document.querySelectorAll("table.calculator tbody td");
 let ans = 0;
+
+// displayValue.innerHTML = 0;
 
 let renderButtonsActions = (function () {
     buttons.forEach((button) => {
@@ -28,6 +30,7 @@ let renderButtonsActions = (function () {
 
 function clearAll() {
     displayValue.innerHTML = "0";
+    ansValue.innerHTML = "0";
     ans = 0;
 }
 
@@ -58,14 +61,22 @@ function pow(value) {
 }
 
 function answerValue() {
-    displayValue.innerHTML = ans;
+    displayValue.innerHTML += ans;
+    ansValue.innerHTML = ans;
 }
 
 function equal(value) {
     let expression = displayValue.innerHTML;
-    displayValue.innerHTML = eval(value);
-    ans = displayValue.innerHTML;
-    history(expression, displayValue.innerHTML, "=");
+    try {
+        displayValue.innerHTML = eval(value);
+        ans = displayValue.innerHTML;
+        ansValue.innerHTML = displayValue.innerHTML;
+        history(expression, displayValue.innerHTML, "=");
+    } catch (error) {
+        console.error(error);
+        alert("Error to calculate!");
+        clearExpression();
+    }
 }
 
 function history(expression, result, button) {
@@ -115,5 +126,18 @@ function buttonsClick(event) {
         default:
             displayValue.innerHTML += buttonValue;
             break;
+    }
+}
+
+function darkMode(event) {
+    let bodyStyle = window.getComputedStyle(document.body, null).getPropertyValue('background-color');
+    if (bodyStyle == "rgb(0, 0, 0)") {
+        document.getElementsByTagName('body')[0].style.background = 'beige';
+        document.querySelector('div.panel').style.color = 'black';
+        document.querySelector('div.panel').style.borderColor = 'black';
+    } else {
+        document.getElementsByTagName('body')[0].style.background = 'black';
+        document.querySelector('div.panel').style.color = 'lightgray';
+        document.querySelector('div.panel').style.borderColor = 'lightgray';
     }
 }

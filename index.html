@@ -12,58 +12,68 @@
             <table class="calculator">
                 <thead>
                     <tr class="calculatorDisplay">
-                        <td class="expression" colspan="4"></td>
+                        <td class="ans">0</td>
+                        <td class="expression" colspan="3">0</td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>CA</td>
-                        <td>C</td>
-                        <td>delete</td>
-                        <td>+</td>
+                        <td class="specialButton">CA</td>
+                        <td class="specialButton">C</td>
+                        <td class="specialButton">delete</td>
+                        <td class="operatorButton">+</td>
         
                     </tr>
                     <tr>
-                        <td>sqrt</td>
-                        <td>x^y</td>
-                        <td>ans</td>
-                        <td>-</td>
+                        <td class="specialButton">sqrt</td>
+                        <td class="specialButton">x^y</td>
+                        <td class="specialButton">ans</td>
+                        <td class="operatorButton">-</td>
         
                     </tr>
                     <tr>
-                        <td>%</td>
-                        <td>(</td>
-                        <td>)</td>
-                        <td>/</td>
+                        <td class="specialButton">%</td>
+                        <td class="specialButton">(</td>
+                        <td class="specialButton">)</td>
+                        <td class="operatorButton">/</td>
                     </tr>
                     <tr>
-                        <td>7</td>
-                        <td>8</td>
-                        <td>9</td>
-                        <td>*</td>
+                        <td class="numberButton">7</td>
+                        <td class="numberButton">8</td>
+                        <td class="numberButton">9</td>
+                        <td class="operatorButton">*</td>
         
                     </tr>
                     <tr>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
-                        <td rowspan="3">=</td>
+                        <td class="numberButton">4</td>
+                        <td class="numberButton">5</td>
+                        <td class="numberButton">6</td>
+                        <td rowspan="3" class="operatorButton">=</td>
                     </tr>
                     <tr>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
+                        <td class="numberButton">1</td>
+                        <td class="numberButton">2</td>
+                        <td class="numberButton">3</td>
                     </tr>
                     <tr>
-                        <td colspan="2">0</td>
-                        <td>.</td>
+                        <td colspan="2" class="numberButton">0</td>
+                        <td class="numberButton">.</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div class="right history">
-            <h3>History</h3>
-            <p>Your last inputs will be appear here.</p>
+        <div class="right panel">
+            <div class="darkmode">
+                <h3>Dark Mode</h3>
+                <label class="switch">
+                    <input type="checkbox" checked onclick="darkMode(event)">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="history">
+                <h3>History</h3>
+                <p>Your last inputs will be appear here.</p>
+            </div>
         </div>
     </div>
     <script src="./index.js"></script>

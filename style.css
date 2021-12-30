@@ -1,16 +1,19 @@
-body {
-	padding: 15px;
-	background-color: beige;
+* {
+	font-family: Arial, Helvetica, sans-serif;
 }
 
-table.calculator,
-table.calculator * {
-	border: 2px solid black;
-	border-radius: 4px;
+body {
+	padding: 15px;
+	background-color: black;
 }
 
 table.calculator {
-	background-color: darkslateblue;
+	/* border: 2px solid black; */
+	/* border-radius: 4px; */
+	border-collapse: collapse;
+}
+
+table.calculator {
 	margin: auto;
 	width: 60%;
 	height: 100%;
@@ -20,8 +23,10 @@ thead {
 	padding-top: 1000px !important;
 }
 tr.calculatorDisplay {
-	background-color: #4f4f4f;
-	color: #dcdcdc;
+	background-color: gray;
+	color: white;
+	font-weight: bold;
+	font-size: 40px;
 }
 
 td.expression {
@@ -29,9 +34,14 @@ td.expression {
 	padding: 20px;
 }
 
+td.ans {
+	padding-top: 50px;
+	padding-left: 10px;
+	font-size: 25px;
+}
+
 tbody td {
 	text-align: center;
-	background-color: darkgray;
 	font-size: 20px;
 	/* font-weight: bold; */
 	cursor: pointer;
@@ -40,7 +50,33 @@ tbody td {
 
 tbody td:active {
 	background-color: gray;
-	transform: translateY(1px);
+	transform: translateY(1.5px);
+}
+
+tbody td.numberButton:hover {
+	background-color: lightgray;
+	/* transform: translateY(0.5px); */
+}
+tbody td.specialButton:hover {
+	background-color: gray;
+	/* transform: translateY(0.5px); */
+}
+tbody td.operatorButton:hover {
+	background-color: darkorange;
+	/* transform: translateY(0.5px); */
+}
+
+td.specialButton {
+	background-color: lightgray;
+	color: black;
+}
+td.operatorButton {
+	background-color: orange;
+	color: white;
+}
+td.numberButton {
+	background-color: white;
+	color: black;
 }
 
 .grid-container {
@@ -49,11 +85,78 @@ tbody td:active {
 	height: 100%;
 }
 
-.right {
+div.panel {
 	text-align: center;
+	border: 2px solid gray;
+	color: lightgray;
+	padding: 30px;
 }
 
 div.history {
-	border: 2px solid black;
-	padding: 30px;
+	padding-top: 20px;
+}
+
+/* SWITCH BUTTON */
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
+}
+
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-color: white;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+input:checked + .slider {
+	background-color: green;
+}
+
+input:focus + .slider {
+	box-shadow: 0 0 1px green;
+}
+
+input:checked + .slider:before {
+	-webkit-transform: translateX(26px);
+	-ms-transform: translateX(26px);
+	transform: translateX(26px);
+}
+
+input:checked + body:after {
+	background-color: white;
+}
+
+/* Rounded sliders */
+.slider.round {
+	border-radius: 34px;
+}
+
+.slider.round:before {
+	border-radius: 50%;
 }
